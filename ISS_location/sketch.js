@@ -7,9 +7,6 @@ var long;
 var issX; 
 var issY;
 
-var source = new Proj4js.Proj('EPSG:4326');    //source coordinates will be in Longitude/Latitude, WGS84
-var dest = new Proj4js.Proj('EPSG:3785');     //destination coordinates in meters, global spherical mercators projection, see http://spatialreference.org/ref/epsg/3785/
-
 function preload(){
     wmap = loadImage('world-map.gif');
     

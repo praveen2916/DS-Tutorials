@@ -6,7 +6,7 @@ var up = true;
 let balls = [];
 let flower;
 let kitten;
-let kittens=[];
+let kittens = [];
 let img;
 /* 
 Here we define the Classes ie ball and box.
@@ -37,12 +37,12 @@ class Ball {
         this.color = 0;
         this.kitten = kitten;
         this.flower = flower;
-        
+
         //this.speed = tempSpeed;
     }
 
     show() {
-        
+
         image(this.kitten, this.x, this.y, this.dia, this.dia);
         /* stroke(255, 255, 255);
         strokeWeight(2);
@@ -61,7 +61,7 @@ class Ball {
         let d = dist(px, py, this.x, this.y);
 
         if (d < this.dia) {
-           
+
             return true;
         } else {
             false;
@@ -69,11 +69,11 @@ class Ball {
     }
 
     changeImg(pic) {
-        if (pic == flower){
-        this.kitten = pic;
-    }else{
-        this.kitten = kitten;
-    }
+        if (pic == flower) {
+            this.kitten = pic;
+        } else {
+            this.kitten = kitten;
+        }
     }
 
     intersects(other) {
@@ -113,10 +113,10 @@ class ClickBox {
 }
 
 
-function preload(){
+function preload() {
     flower = loadImage('pics/flower.png');
-    for (let i = 0; i < 5;i++ ){
-        kittens[i] = loadImage('pics/kitten'+i+'.jpg');
+    for (let i = 0; i < 5; i++) {
+        kittens[i] = loadImage('pics/kitten' + i + '.jpg');
     }
 }
 
@@ -138,8 +138,8 @@ function draw() {
     if (on) {
         background(0);
 
-       
-        
+
+
         for (let i = 0; i < balls.length; i++) {
             balls[i].show();
             balls[i].move();
@@ -153,11 +153,11 @@ function draw() {
                     //balls[j].changeColor(255);
                     balls[i].changeImg(flower);
                     balls[j].changeImg(flower);
-                    
+
                 } else {
                     balls[i].show();
                     balls[i].move();
-                
+
                     //console.log("doesn't intersect");
                 }
             }
@@ -190,8 +190,8 @@ function mousePressed() {
             let b = new Ball(mouseX, mouseY, dia, kitten);
             balls.push(b);
             console.log(balls.length)
-            for (let i = 0; i<balls.length; i++){
-                if(balls[i].clicked(mouseX,mouseY)){
+            for (let i = 0; i < balls.length; i++) {
+                if (balls[i].clicked(mouseX, mouseY)) {
                     //do something
                 }
             }

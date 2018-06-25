@@ -27,7 +27,7 @@ function preload() {
 	var w = 1024;
 	var h = 512;
 	mapimg = loadImage(url1 + clat + delim + clong + delim + zoom + delim + angle + delim + unknown + '/' + str(w) + 'x' + str(h) + url2 + api_key)
-	earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.csv');
+	earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv');
 	console.log(url1 + clat + delim + clong + delim + zoom + delim + angle + delim + unknown + '/' + str(w) + 'x' + str(h) + url2 + api_key)
 }
 

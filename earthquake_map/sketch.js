@@ -28,7 +28,7 @@ function preload() {
 	var h = 512;
 	mapimg = loadImage(url1 + clat + delim + clong + delim + zoom + delim + angle + delim + unknown + '/' + str(w) + 'x' + str(h) + url2 + api_key)
 	earthquakes = loadStrings('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.csv');
-	console.log(url1 + clat + delim + clong + delim + zoom + delim + angle + delim + unknown + '/' + str(w) + 'x' + str(h) + url2 + api_key)
+	//console.log(url1 + clat + delim + clong + delim + zoom + delim + angle + delim + unknown + '/' + str(w) + 'x' + str(h) + url2 + api_key)
 }
 
 function mercX(long) {
@@ -60,14 +60,19 @@ function setup() {
 	for (var i = 0; i < earthquakes.length; i++) {
 		var data = earthquakes[i].split(/,/);  // this split is regular expression
 		//console.log(data, data[1], data[2]);
-		var lat = int(data[1]);
-		var long = int(data[2]);
-
+		var lat = data[1];
+		var long = data[2];
+		var mag = data[4];
 		var x = mercX(long) - cx;
 		var y = mercY(lat) - cy;
 
-		fill(255, 0, 255, 200);
-		ellipse(x, y, 5, 5);
+		mag = pow(10,mag/2);
+		var magmax = pow(10,10/2);
+		var d = map(mag,0,magmax,0,300);
+		//console.log(d)
+		stroke(255,0,255);
+    	fill(255, 100, 0, 200);
+		ellipse(x, y, d,d);
 
 	}
 
